@@ -119,16 +119,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void checkPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager
-                    .PERMISSION_GRANTED
-                    || checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) !=
-                    PackageManager.PERMISSION_GRANTED
-                    || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) !=
-                    PackageManager.PERMISSION_GRANTED
+            if (checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
+//                    || checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+//                    || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     ) {
                 requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE
-                                , Manifest.permission.ACCESS_FINE_LOCATION
-                                , Manifest.permission.ACCESS_COARSE_LOCATION},
+                               /* , Manifest.permission.ACCESS_FINE_LOCATION
+                                , Manifest.permission.ACCESS_COARSE_LOCATION*/},
                         REQUEST_PERMISSION);
             }
         }
