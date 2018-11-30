@@ -43,8 +43,8 @@ public class FragmentActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initData() {
-        mFragmentList.add(new ViewPagerFragment1());
-        mFragmentList.add(new ViewPagerFragment2());
+        mFragmentList.add(FragmentFactory.getFragment("ViewPagerFragment1"));
+        mFragmentList.add(FragmentFactory.getFragment("ViewPagerFragment2"));
         mViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), mFragmentList));
     }
 

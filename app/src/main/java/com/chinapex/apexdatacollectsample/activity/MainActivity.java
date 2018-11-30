@@ -1,5 +1,6 @@
 package com.chinapex.apexdatacollectsample.activity;
 
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btSignOut = (Button) findViewById(R.id.bt_signOut);
         btSignOut.setOnClickListener(this);
+
+        Button btnClick = (Button) findViewById(R.id.bt_click_test);
+        btnClick.setOnClickListener(this);
     }
 
     @Override
@@ -112,6 +116,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_signOut:
                 ApexAnalytics.getInstance().signOut();
                 break;
+            case R.id.bt_click_test:
+                startActivity(new Intent(this, ClickTestActivity.class));
+                break;
             default:
                 break;
         }
@@ -124,8 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     ) {
                 requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE
-                               /* , Manifest.permission.ACCESS_FINE_LOCATION
-                                , Manifest.permission.ACCESS_COARSE_LOCATION*/},
+                                /* , Manifest.permission.ACCESS_FINE_LOCATION
+                                 , Manifest.permission.ACCESS_COARSE_LOCATION*/},
                         REQUEST_PERMISSION);
             }
         }
