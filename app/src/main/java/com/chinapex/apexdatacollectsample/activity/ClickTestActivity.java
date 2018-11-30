@@ -34,6 +34,7 @@ public class ClickTestActivity extends AppCompatActivity implements View.OnClick
 
         initView();
         initData();
+        System.out.print(1);
     }
 
 
