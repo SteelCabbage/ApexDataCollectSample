@@ -3,6 +3,8 @@ package com.chinapex.apexdatacollectsample;
 import android.app.Application;
 
 import com.chinapex.android.datacollect.ApexAnalytics;
+import com.chinapex.android.datacollect.model.bean.AnalyticsSettings;
+import com.chinapex.android.datacollect.utils.ATLog;
 import com.chinapex.apexdatacollectsample.utils.AppLog;
 
 /**
@@ -24,17 +26,14 @@ public class SampleApp extends Application {
 
         long time = System.currentTimeMillis();
 
-        // settings
-        ApexAnalytics.getInstance().setLogLevel(AppLog.VERBOSE);
-        ApexAnalytics.getInstance().setDelayReportInterval(1000 * 60 * 2);
-        ApexAnalytics.getInstance().setCheckInstantErrInterval(1000 * 60);
-        ApexAnalytics.getInstance().setReportMaxNum(5);
+        ApexAnalytics.getInstance().init(new AnalyticsSettings.SettingsBuilder(sSampleApp)
+                .setLogLevel(ATLog.VERBOSE)
+                .setDelayReportInterval(1000 * 60 * 2)
+                .setCheckInstantErrInterval(1000 * 60)
+                .setReportMaxNum(5)
+                .build());
 
-        // 初始化埋点sdk
-        ApexAnalytics.getInstance().init(sSampleApp);
-
-        AppLog.w(TAG, "================init ApexAnalytics cost time================:" + (System
-                .currentTimeMillis() - time));
+        AppLog.w(TAG, "================init ApexAnalytics cost time================:" + (System.currentTimeMillis() - time));
     }
 
     public static SampleApp getInstance() {
