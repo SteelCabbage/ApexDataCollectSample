@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.chinapex.android.datacollect.ApexAnalytics;
+import com.chinapex.android.datacollect.model.bean.ApexLocation;
 import com.chinapex.android.datacollect.model.bean.TrackEvent;
 import com.chinapex.android.datacollect.testAop.CabbageButton;
 import com.chinapex.apexdatacollectsample.R;
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnClick = (Button) findViewById(R.id.bt_click_test);
         btnClick.setOnClickListener(this);
+
+        Button btSetLocation = (Button) findViewById(R.id.bt_setLocation);
+        btSetLocation.setOnClickListener(this);
     }
 
     @Override
@@ -118,6 +122,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_click_test:
                 startActivity(new Intent(this, ClickTestActivity.class));
+                break;
+            case R.id.bt_setLocation:
+                ApexAnalytics.getInstance().setApexLocation(new ApexLocation.LocationBuilder()
+                        .setLongitude(11.22)
+                        .setLatitude(55.66)
+                        .setCountry(String.valueOf("中国" + System.currentTimeMillis()))
+                        .setProvince(String.valueOf("上海" + System.currentTimeMillis()))
+                        .setCity(String.valueOf("上海市" + System.currentTimeMillis()))
+                        .setDistrict("浦东新区")
+                        .build());
                 break;
             default:
                 break;

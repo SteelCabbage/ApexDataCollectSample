@@ -27,6 +27,7 @@ public class SampleApp extends Application {
         long time = System.currentTimeMillis();
 
         ApexAnalytics.getInstance().init(new AnalyticsSettings.SettingsBuilder(sSampleApp)
+                .setUuid("testUuid")
                 .setLogLevel(ATLog.VERBOSE)
                 .setDelayReportInterval(1000 * 60 * 2)
                 .setCheckInstantErrInterval(1000 * 60)
