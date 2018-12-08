@@ -32,9 +32,11 @@ public class SampleApp extends Application {
                 .setDelayReportInterval(1000 * 60 * 2)
                 .setCheckInstantErrInterval(1000 * 60)
                 .setReportMaxNum(5)
+                .setUrlDelay("")
+                .setUrlInstant("")
                 .build());
 
-        AppLog.w(TAG, "================init ApexAnalytics cost time================:" + (System.currentTimeMillis() - time));
+        AppLog.d(TAG, "======init ApexAnalytics cost time======:" + (System.currentTimeMillis() - time));
     }
 
     public static SampleApp getInstance() {
