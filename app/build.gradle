@@ -31,5 +31,5 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
     // 依赖SDK
-    implementation 'com.chinapex.android.datacollect:ApexCollectSDK:1.0.5'
+    implementation 'com.chinapex.android.datacollect:ApexCollectSDK:1.0.6'
 }
