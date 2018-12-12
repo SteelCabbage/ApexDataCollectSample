@@ -14,8 +14,12 @@ import com.chinapex.android.datacollect.ApexAnalytics;
 import com.chinapex.android.datacollect.model.bean.ApexLocation;
 import com.chinapex.android.datacollect.model.bean.TrackEvent;
 import com.chinapex.android.datacollect.testAop.CabbageButton;
+import com.chinapex.android.datacollect.utils.GsonUtils;
 import com.chinapex.apexdatacollectsample.R;
+import com.chinapex.apexdatacollectsample.bean.TestTracker;
 import com.chinapex.apexdatacollectsample.utils.AppLog;
+
+import java.util.Properties;
 
 
 /**
@@ -89,29 +93,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent2);
                 break;
             case R.id.bt_delay:
+                TestTracker testTracker = new TestTracker();
+                testTracker.setDate("2018.12.12");
+                testTracker.setName("张三");
+                testTracker.setAge("18");
+                testTracker.setWork("study");
+
+                AppLog.d(TAG, "testTracker:" + GsonUtils.toJsonStr(testTracker));
                 ApexAnalytics.getInstance().track(new TrackEvent.EventBuilder()
-                        .setLabel("延时上报的label")
-                        .setValue("{\n" +
-                                "                \"custom1\": \"111111\",\n" +
-                                "                \"custom2\": \"222222\",\n" +
-                                "                \"custom3\": \"333333\",\n" +
-                                "                \"custom4\": \"444444\",\n" +
-                                "                \"custom5\": \"555555\"\n" +
-                                "            }")
+                        .setMode(0)
+                        .setLabel("testTracker")
+                        .setValue(GsonUtils.toJsonStr(testTracker))
                         .build());
                 break;
             case R.id.bt_instant:
+                Properties properties = new Properties();
+                properties.put("lala1", "lala11");
+                properties.put("lala2", "lala22");
+                properties.put("lala3", "lala33");
+                properties.put("lala4", "lala44");
+                properties.put("lala5", "lala55");
+
+                AppLog.d(TAG, "properties:" + GsonUtils.toJsonStr(properties));
                 ApexAnalytics.getInstance().track(new TrackEvent.EventBuilder()
-                        // 0: delay (default), 1: instant
                         .setMode(1)
-                        .setLabel("即时上报的label")
-                        .setValue("{\n" +
-                                "                \"custom1\": \"111111\",\n" +
-                                "                \"custom2\": \"222222\",\n" +
-                                "                \"custom3\": \"333333\",\n" +
-                                "                \"custom4\": \"444444\",\n" +
-                                "                \"custom5\": \"555555\"\n" +
-                                "            }")
+                        .setLabel("properties")
+                        .setValue(GsonUtils.toJsonStr(properties))
                         .build());
                 break;
             case R.id.bt_signIn:
