@@ -1,4 +1,4 @@
-package com.chinapex.apexdatacollectsample.adapter;
+package com.chinapex.apexdatacollectsample.bean;
 
 /**
  * @author SteelCabbage

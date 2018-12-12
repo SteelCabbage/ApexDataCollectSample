@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.chinapex.apexdatacollectsample.R;
+import com.chinapex.apexdatacollectsample.bean.Student;
 import com.chinapex.apexdatacollectsample.utils.AppLog;
 
 import java.util.List;

@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.chinapex.apexdatacollectsample.R;
 import com.chinapex.apexdatacollectsample.SampleApp;
 import com.chinapex.apexdatacollectsample.adapter.RvAdapter;
-import com.chinapex.apexdatacollectsample.adapter.Student;
+import com.chinapex.apexdatacollectsample.bean.Student;
 import com.chinapex.apexdatacollectsample.utils.AppLog;
 
 import java.util.ArrayList;
