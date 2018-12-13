@@ -4,7 +4,7 @@ apply plugin: 'aop'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.chinapex.apexdatacollectsample"
+        applicationId "com.chinapex.analytics.sample"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -16,6 +16,20 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable true
+        }
+    }
+    sourceSets {
+       main {
+           jniLibs.srcDirs = ['libs']
+       }
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'key0'
+            keyPassword 'huskie'
+            storeFile file('./key')
+            storePassword 'huskie'
         }
     }
 }
@@ -31,5 +45,5 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
     // 依赖SDK
-    implementation 'com.chinapex.android.datacollect:ApexCollectSDK:1.0.6'
+    implementation 'com.chinapex.android.datacollect:ApexCollectSDK:1.0.7'
 }
